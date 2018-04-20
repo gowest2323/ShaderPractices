@@ -36,9 +36,10 @@ public class DissoleController : MonoBehaviour
     {
         dissolveMat.SetFloat("_Threshold", dissolveRange);
 
-        if (dissolveMat.GetFloat("_Threshold") == 1.0f)
+        if (dissolveMat.GetFloat("_Threshold") >= 1.0f)
         {
-            Object.Destroy(this);
+            isEnter = false;
+
         }
     }
 
