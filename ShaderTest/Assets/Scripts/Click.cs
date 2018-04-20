@@ -33,6 +33,14 @@ public class Click : MonoBehaviour
             {
                 m_position.x += 0.1f;
             }
+            else if (Input.GetKey(KeyCode.UpArrow))
+            {
+                m_position.z += 0.1f;
+            }
+            else if (Input.GetKey(KeyCode.DownArrow))
+            {
+                m_position.z -= 0.1f;
+            }
         }
 
         //キー

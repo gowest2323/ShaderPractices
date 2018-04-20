@@ -1,21 +1,25 @@
 ﻿Shader "Custom/ColorCircle" {
 	Properties {
 		_Color ("Color", Color) = (1,1,1,1)
-        _MainTex("Texture", 2D) = "white"{}
-        _CenterPosition("Center Position", Vector) = (0, 0, 0, 0)
-        _GroundColor("GroundColor", Color) = (1,1,1,1)
+        _MainTex ("Texture", 2D) = "white"{}
+        _CenterPosition ("Center Position", Vector) = (0, 0, 0, 0)
+        _GroundColor ("GroundColor", Color) = (1,1,1,1)
+		_Cutoff ("Cutoff", Range(0, 1)) = 0.5
 	}
 	SubShader {
-		Tags { "Queue"="Transparent" }
+		Tags { "Queue"="AlphaTest"
+				"RenderType" = "Transparent"}
 		LOD 200
+
+		//両面を描画したい
+		Cull Off
 
 		CGPROGRAM
 		// Physically based Standard lighting model, and enable shadows on all light types
-		#pragma surface surf Standard alpha:fade
+		#pragma surface surf Standard fullforwardshadows alphatest:_Cutoff
 
 		// Use shader model 3.0 target, to get nicer looking lighting
 		#pragma target 3.0
-
 
 		struct Input 
         {
@@ -28,6 +32,7 @@
         sampler2D _MainTex;
 		fixed4 _Color;
         fixed4 _GroundColor;
+		
 
 		// Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
 		// See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -38,7 +43,7 @@
 
 		void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            fixed4 c = tex2D(_MainTex, IN.uv_MainTex)*_Color;
+			fixed4 c = tex2D(_MainTex, IN.uv_MainTex);// *_Color;
 
             float dist = distance(_CenterPosition, IN.worldPos);
             float val = abs(sin(dist * 3.0 - _Time * 100)); // +は内側に、-は外側に
@@ -51,9 +56,9 @@
             {
                 o.Albedo = _GroundColor.rgb;
             }
-            o.Alpha = (c.r*0.3 + c.g*0.6 + c.b*0.1 < 0.2) ? 1 : 0;
+			o.Alpha = c.a;
 		}
 		ENDCG
 	}
-	FallBack "Diffuse"
+	Fallback "Transparent/Cutout/Diffuse"
 }
