@@ -10,6 +10,7 @@
         LOD 100
         Blend SrcAlpha OneMinusSrcAlpha
         ZWrite Off
+		//ZTest always
         Cull off
 
         Pass
