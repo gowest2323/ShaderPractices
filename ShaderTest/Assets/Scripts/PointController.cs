@@ -10,19 +10,20 @@ public class PointController : MonoBehaviour
 
     [SerializeField]
     Material targetMat;
+    [SerializeField]
+    Material defaltMat;
 
     //public GameObject obj;
     bool isClick = false;
-    bool isPoint = false;
     private float range = 0;
+    private SkinnedMeshRenderer smr;
 
 
 
     void Start()
     {
-        //MeshFilter meshFilter = GetComponent<MeshFilter>();
-        //meshFilter.mesh.SetIndices(meshFilter.mesh.GetIndices(0), MeshTopology.Points, 0);
-
+        smr = GetComponent<SkinnedMeshRenderer>();
+        smr.material = defaltMat;
 
         TurnMeshToTriangle();
         //TurnMeshToPoint();
@@ -34,7 +35,7 @@ public class PointController : MonoBehaviour
 
         if (GetComponent<SkinnedMeshRenderer>())
         {
-            SkinnedMeshRenderer smr = GetComponent<SkinnedMeshRenderer>();
+            //smr = GetComponent<SkinnedMeshRenderer>();
             smr.sharedMesh.SetIndices(smr.sharedMesh.GetIndices(0), MeshTopology.Points, 0);
         }
         else if(GetComponent<MeshFilter>())
@@ -48,7 +49,7 @@ public class PointController : MonoBehaviour
     {
         if(GetComponent<SkinnedMeshRenderer>())
         {
-            SkinnedMeshRenderer smr = GetComponent<SkinnedMeshRenderer>();
+            //SkinnedMeshRenderer smr = GetComponent<SkinnedMeshRenderer>();
             smr.sharedMesh.SetIndices(smr.sharedMesh.GetIndices(0), MeshTopology.Triangles, 0);
         }
         else if (GetComponent<MeshFilter>())
@@ -62,15 +63,14 @@ public class PointController : MonoBehaviour
     public void LetsBlow()
     {
         TurnMeshToPoint();
+        smr.material = targetMat;
+
         isClick = true;
-        isPoint = true;
 
     }
 
     private void Update()
     {
-
-
         if (isClick)
         {
             range += 0.05f;
