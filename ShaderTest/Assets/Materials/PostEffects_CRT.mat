@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Unlit_LightingShader
-  m_Shader: {fileID: 4800000, guid: 92fbaf7645f86f14ea07189a5fbe86c6, type: 3}
+  m_Name: PostEffects_CRT
+  m_Shader: {fileID: 4800000, guid: 12c8e167a4fe84d4d8577a32cb515c82, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -22,8 +22,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: []
+    m_Floats:
+    - _Darkness: 0
+    - _NoiseX: 0.01
+    - _RGBNoise: 0
+    - _ScanLineSpeed: 0
+    - _ScanLineTail: 1.5
+    - _SinNoiseOffset: 0
+    - _SinNoiseScale: 0
+    - _SinNoiseWidth: 0
+    - _Strength: 0.15
     m_Colors:
-    - _BaseColor: {r: 0.4817798, g: 0.97794116, b: 0.91634876, a: 1}
-    - _Color: {r: 0.14597753, g: 0.7123701, b: 0.99264705, a: 1}
-    - _ShadowColor: {r: 0.22258696, g: 0.084342584, b: 0.9558824, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Offset: {r: 0, g: 0, b: 0, a: 0}

@@ -6,8 +6,13 @@
 	SubShader 
 	{
 		Tags{ "RenderType" = "Opaque" }
-		LOD 100
+		LOD 200
 
+		Pass
+		{
+			Zwrite On
+			ColorMask 0
+		}
 		Pass
 		{
 			Stencil
@@ -19,10 +24,10 @@
 				ZFail keep
 			}
 
-		ZWrite off
-		Lighting off
-		SeparateSpecular off
-		Blend SrcAlpha OneMinusSrcAlpha
+			ZWrite off
+			Lighting off
+			SeparateSpecular off
+			Blend SrcAlpha OneMinusSrcAlpha
 
 			CGPROGRAM
 			#pragma vertex vert

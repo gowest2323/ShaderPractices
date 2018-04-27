@@ -9,10 +9,21 @@ Shader "Custom/HideOnly"
 	}
 	SubShader
 	{
+		Pass
+		{
+			Zwrite On
+			ColorMask 0
+			Lighting off
+		}
+
+
 		Tags { "RenderType"="Opaque"
 				"Queue"="Transparent"
-				"HideDisp"="Yes" }
-		LOD 100
+				"HideDisp"="Yes"
+				"IgnoreProjector" = "True" }
+		LOD 200
+
+
 
 		Pass
 		{
@@ -74,5 +85,5 @@ Shader "Custom/HideOnly"
 
 
 	}
-			Fallback "VertexLit"
+	Fallback "Transparent/VertexLit"
 }

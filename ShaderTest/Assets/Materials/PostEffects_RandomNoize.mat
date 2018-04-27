@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Unlit_LightingShader
-  m_Shader: {fileID: 4800000, guid: 92fbaf7645f86f14ea07189a5fbe86c6, type: 3}
+  m_Name: PostEffects_RandomNoize
+  m_Shader: {fileID: 4800000, guid: a8f2a0548fbf57443ba0c65591fbebfa, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -23,7 +23,4 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats: []
-    m_Colors:
-    - _BaseColor: {r: 0.4817798, g: 0.97794116, b: 0.91634876, a: 1}
-    - _Color: {r: 0.14597753, g: 0.7123701, b: 0.99264705, a: 1}
-    - _ShadowColor: {r: 0.22258696, g: 0.084342584, b: 0.9558824, a: 1}
+    m_Colors: []
