@@ -24,7 +24,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Darkness: 0
-    - _NoiseX: 0.01
+    - _NoiseX: 0.03
     - _RGBNoise: 0
     - _ScanLineSpeed: 0
     - _ScanLineTail: 1.5
