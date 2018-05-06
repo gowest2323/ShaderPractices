@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.45010382, g: 0.49762088, b: 0.5618568, a: 1}
+  m_IndirectSpecularColor: {r: 0.45010394, g: 0.49762112, b: 0.5618568, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -18476,6 +18476,9 @@ GameObject:
   - component: {fileID: 1157990596}
   - component: {fileID: 1157990595}
   - component: {fileID: 1157990599}
+  - component: {fileID: 1157990600}
+  - component: {fileID: 1157990601}
+  - component: {fileID: 1157990603}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -18529,7 +18532,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
+  m_ForceIntoRT: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -18566,6 +18569,46 @@ MonoBehaviour:
   offset: {x: 0, y: 0}
   scanLineTail: 1.5
   scanLineSpeed: 0
+--- !u!114 &1157990600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1157990594}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1706284f9bbbb4e199374db583725bba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _intensity: 0.3
+  shader: {fileID: 4800000, guid: de782114409bf409495896cc089fbf82, type: 3}
+--- !u!114 &1157990601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1157990594}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 69f96dda12deb1c48897bc9e3481d42d, type: 2}
+--- !u!114 &1157990603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1157990594}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f19108706fdce9469603d07980eb8ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blendMode: 4
+  intensity: 1
+  texture: {fileID: 2800000, guid: c16ab5db5dfb73a45b6e669a2e8657d2, type: 3}
+  overlayShader: {fileID: 4800000, guid: 8c81db0e527d24acc9bcec04e87781bd, type: 3}
 --- !u!1 &1259115313
 GameObject:
   m_ObjectHideFlags: 0
@@ -20073,7 +20116,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh-772320
+  m_Name: pb_Mesh18408
   serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
@@ -20316,4 +20359,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1157990597}
-  effectSeconds: 0.5
+  effectSeconds: 2
