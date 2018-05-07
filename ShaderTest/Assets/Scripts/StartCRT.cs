@@ -35,9 +35,9 @@ public class StartCRT : MonoBehaviour {
 
         if (cnt >= effectSeconds)
         {
-           // mainCamera.GetComponent<CRT>().enabled = false;
-            mainCamera.GetComponent<ScreenOverlay>().enabled = false;
-            mainCamera.GetComponent<ScreenOverlay>().intensity = 0;
+           mainCamera.GetComponent<CRT>().enabled = false;
+            //mainCamera.GetComponent<ScreenOverlay>().enabled = false;
+            //mainCamera.GetComponent<ScreenOverlay>().intensity = 0;
 
 
             cnt = 0;
@@ -49,8 +49,8 @@ public class StartCRT : MonoBehaviour {
     {
         if(collision.transform.tag == "Enemy")
         {
-           // mainCamera.GetComponent<CRT>().enabled = true;
-            mainCamera.GetComponent<ScreenOverlay>().enabled = true;
+            mainCamera.GetComponent<CRT>().enabled = true;
+            //mainCamera.GetComponent<ScreenOverlay>().enabled = true;
 
 
 
