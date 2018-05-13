@@ -9,9 +9,10 @@ public class Portal : MonoBehaviour
     Texture texture;
     [SerializeField]
     float radius = 0.15f;
+    [SerializeField]
+    GameObject target;
 
     readonly int subTexPropertyId = Shader.PropertyToID("_SubTex");
-
     void Start()
     {
         material.SetTexture(subTexPropertyId, texture);
@@ -19,23 +20,34 @@ public class Portal : MonoBehaviour
 
     void Update()
     {
-        var mousePosition = Input.mousePosition;
+        //var mousePosition = Input.mousePosition;
+        var playerPosition = Camera.main.WorldToScreenPoint(target.transform.position + new Vector3(0, 1, 0));
 
+        //var uv = new Vector3(
+        //    mousePosition.x / Screen.width,
+        //    mousePosition.y / Screen.height, 0);
         var uv = new Vector3(
-            mousePosition.x / Screen.width,
-            mousePosition.y / Screen.height, 0);
+            playerPosition.x / Screen.width,
+            playerPosition.y / Screen.height, 0);
+
+
 
         material.SetVector("_Position", uv);
+
+        var fluct = Mathf.Sin(Time.timeSinceLevelLoad * 3) * 0.1f + 0.9f;
+        material.SetFloat(radiusPropertyId, radius * fluct);
+
         material.SetFloat("_Aspect", Screen.height / (float)Screen.width);
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            OpenPortal();
-        }
-        else if (Input.GetMouseButtonUp(0))
-        {
-            ClosePortal();
-        }
+        //マウスクリックでポータル生成
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    OpenPortal();
+        //}
+        //else if (Input.GetMouseButtonUp(0))
+        //{
+        //    ClosePortal();
+        //}
     }
 
     float currentPortalRadius = 0;

@@ -19,7 +19,7 @@
     // .z  = 1: inside, 0: outside
     float3 transform_uv(float2 uv)
     {
-        float width = 0.07;
+        float width = 0.03;
 
         // 自身のピクセルからポータル中心までの距離
         float distance = length((_Position - uv) * float2(1, _Aspect));
