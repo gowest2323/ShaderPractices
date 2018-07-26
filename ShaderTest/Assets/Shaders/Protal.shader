@@ -14,6 +14,8 @@
     float _Radius;
     float2 _Position;
 
+	int _useSubTex = 0;
+
     // Transform UV for Portal Effect
     // .xy = uv for portal effect
     // .z  = 1: inside, 0: outside
@@ -40,9 +42,20 @@
         // 計算した uv で _MainTex のカラーを出力します
         // ポータル内に違う絵を出すために、
         // lerp + step で出力テクスチャを切り替えています
-        return lerp(tex2D(_MainTex, portal.xy),
-            tex2D(_MainTex, i.uv),
-            portal.z);
+		// 同じ_MainTexにしたら輪っかのようになる
+
+		if (_useSubTex == 1)
+		{
+			return lerp(tex2D(_MainTex, portal.xy),
+				tex2D(_SubTex, i.uv),
+				portal.z);
+		}
+		else
+		{
+			return lerp(tex2D(_MainTex, portal.xy),
+				tex2D(_MainTex, i.uv),
+				portal.z);
+		}
     }
     ENDCG
 

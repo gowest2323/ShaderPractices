@@ -12,6 +12,9 @@ public class Portal : MonoBehaviour
     [SerializeField]
     GameObject target;
 
+    [SerializeField]
+    bool useSubTex = false;
+
     readonly int subTexPropertyId = Shader.PropertyToID("_SubTex");
     void Start()
     {
@@ -39,7 +42,7 @@ public class Portal : MonoBehaviour
 
         material.SetFloat("_Aspect", Screen.height / (float)Screen.width);
 
-        //マウスクリックでポータル生成
+        ////マウスクリックでポータル生成
         //if (Input.GetMouseButtonDown(0))
         //{
         //    OpenPortal();
@@ -48,19 +51,28 @@ public class Portal : MonoBehaviour
         //{
         //    ClosePortal();
         //}
+
+        if (useSubTex)
+        {
+            material.SetInt("_useSubTex", 1);
+        }
+        else
+        {
+            material.SetInt("_useSubTex", 0);
+        }
     }
 
     float currentPortalRadius = 0;
     void OpenPortal()
     {
-        //SetPortalRadius(radius);
+        SetPortalRadius(radius);
         DOTween.KillAll();
         DOTween.To(() => currentPortalRadius, SetPortalRadius, radius, 2f).SetEase(Ease.OutBack);
     }
 
     void ClosePortal()
     {
-        //SetPortalRadius(0);
+        SetPortalRadius(0);
         DOTween.KillAll();
         DOTween.To(() => currentPortalRadius, SetPortalRadius, 0f, 0.6f).SetEase(Ease.InBack);
     }

@@ -72,6 +72,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _CenterPosition: {r: -2.544496, g: -2.860909e-17, b: 2.5768778, a: 0}
+    - _CenterPosition: {r: -1.0277431, g: 8.807547, b: -6.6947255, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
